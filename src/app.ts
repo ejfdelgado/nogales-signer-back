@@ -62,6 +62,7 @@ class App {
 
         this.app.get('/public/sample/db1', asyncHandler(SampleSrv.callDB1));
         this.app.get('/public/sample/db2', asyncHandler(SampleSrv.callDB2));
+        this.app.get('/public/sample/test', asyncHandler(SampleSrv.test));
 
         this.app.use('*', (req: Request, res: Response) => {
             const response: ApiResponse = {
