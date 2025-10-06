@@ -1,7 +1,7 @@
 
 export class SimpleObj {
     static recreate(obj: any, path: string, value: any): void {
-        if (typeof path !== "string" || !path.length) return;
+        if (typeof path !== "string" || !path.length) return obj;
 
         const keys = path.split(".");
         let current = obj;
@@ -46,6 +46,7 @@ export class SimpleObj {
                 }
             }
         }
+        return obj;
     }
 
     static getValue(obj: any, path: string, defaultValue: any = undefined): any {

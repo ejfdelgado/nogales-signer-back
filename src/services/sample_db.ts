@@ -2,7 +2,7 @@ import { Request, Response, } from 'express';
 import { ApiResponse } from "../app";
 import { executeText, executeFile } from "../tools/db";
 import { SimpleObj } from "../tools/SimpleObj";
-import { testGetValue } from '../tools/SimpleObj.test';
+import { testGetValue, testWriteValue } from '../tools/SimpleObj.test';
 
 export class SampleSrv {
     static async callDB1(req: Request, res: Response) {
@@ -40,6 +40,7 @@ export class SampleSrv {
         };
 
         testGetValue();
+        testWriteValue();
 
         const data: any = {};
 
