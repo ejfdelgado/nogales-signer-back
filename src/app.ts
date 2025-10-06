@@ -3,6 +3,7 @@ import cors from 'cors';
 import { CustomError } from './errors';
 import { HealthSrv } from "./services/health";
 import { asyncHandler } from "./tools/General";
+import { SampleSrv } from "./services/sample_db";
 
 export interface ApiResponse {
     success: boolean;
@@ -58,6 +59,9 @@ class App {
         // Health check endpoint
         this.app.get('/public/health', asyncHandler(HealthSrv.health));
         this.app.post('/public/echo', asyncHandler(HealthSrv.echo));
+
+        this.app.get('/public/sample/db1', asyncHandler(SampleSrv.callDB1));
+        this.app.get('/public/sample/db2', asyncHandler(SampleSrv.callDB2));
 
         this.app.use('*', (req: Request, res: Response) => {
             const response: ApiResponse = {
