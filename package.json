@@ -1,0 +1,31 @@
+{
+  "name": "backen-ee",
+  "version": "0.0.1",
+  "main": "index.js",
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "scripts": {
+    "bip": "ffplay /sound/finish.mp3 -nodisp -nostats -hide_banner -autoexit",
+    "build": "tsc",
+    "start": "node dist/server.js",
+    "dev": "nodemon src/server.ts",
+    "clean": "rm -rf dist",
+    "build_docker": "npm run build && docker build --no-cache=true -t us-central1-docker.pkg.dev/local-volt-431316-m2/nogales/nogales_signer_back:$npm_package_version -f Dockerfile . && npm run bip",
+    "publish": "docker push us-central1-docker.pkg.dev/local-volt-431316-m2/nogales/nogales_signer_back:$npm_package_version && npm run bip"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.21.2",
+    "pg-promise": "^11.15.0"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.3",
+    "@types/node": "^20.19.11",
+    "@types/pg-promise": "^0.0.28",
+    "nodemon": "^3.1.10",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.2"
+  }
+}
