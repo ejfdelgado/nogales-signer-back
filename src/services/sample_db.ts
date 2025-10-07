@@ -4,6 +4,7 @@ import { executeText, executeFile } from "../tools/db";
 import { SimpleObj } from "../tools/SimpleObj";
 import { testGetValue, testWriteValue } from '../tools/SimpleObj.test';
 import { templateTest } from '../tools/MyTemplate.test';
+import { testTuples } from '../tools/MyTuples.test';
 
 export class SampleSrv {
     static async callDB1(req: Request, res: Response) {
@@ -43,6 +44,11 @@ export class SampleSrv {
         testGetValue();
         testWriteValue();
         templateTest();
+        try {
+            await testTuples();
+        } catch (err) {
+            console.log(err);
+        }
 
         const data: any = {};
 
