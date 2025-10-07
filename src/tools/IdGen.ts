@@ -1,5 +1,5 @@
 
-class IdGen {
+export class IdGen {
   static RANDOM_SPACE = 3;
   static MAX_LENGTH_ORD_TEXT = 11 + Math.ceil(IdGen.RANDOM_SPACE * 0.63);
   static RANDOM_SPACE_MULT = Math.pow(10, IdGen.RANDOM_SPACE);
@@ -206,7 +206,3 @@ class IdGen {
     return IdGen.num2ord(num, false);
   }
 }
-
-module.exports = {
-  IdGen
-};
