@@ -6,7 +6,7 @@ export class HealthSrv {
         console.log('Health check endpoint called');
         const response: ApiResponse = {
             success: true,
-            message: 'Server is healthy*',
+            message: 'Server is healthy edgar',
             timestamp: new Date()
         };
         res.status(200).json(response);
