@@ -5,7 +5,7 @@ export class HealthSrv {
     static health(req: Request, res: Response) {
         const response: ApiResponse = {
             success: true,
-            message: 'Server is healthy',
+            message: 'Server is healthy!',
             timestamp: new Date()
         };
         res.status(200).json(response);
