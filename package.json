@@ -13,7 +13,7 @@
     "clean": "rm -rf dist",
     "localbuild": "docker build --no-cache=true -t nogales-signer-dev -f DockerfileDev .",
     "localrun": "docker run -d -p 8080:8080 -v ./src:/app/src nogales-signer-dev",
-    "localall": "docker rmi nogales-signer-dev && npm run localbuild && npm run localrun",
+    "localall": "npm run localbuild && npm run localrun",
     "build_docker": "npm run build && docker build --no-cache=true -t us-central1-docker.pkg.dev/local-volt-431316-m2/nogales/nogales_signer_back:$npm_package_version -f Dockerfile . && npm run bip",
     "publish": "docker push us-central1-docker.pkg.dev/local-volt-431316-m2/nogales/nogales_signer_back:$npm_package_version && npm run bip"
   },
